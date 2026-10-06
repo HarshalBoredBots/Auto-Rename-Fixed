@@ -1,0 +1,42 @@
+services:
+  - type: worker
+    name: telegram-torrent-bot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: MONGO_DB_NAME
+        value: TorrentBot
+      - key: OWNER_ID
+        sync: false
+      - key: DUMP_CHANNEL_ID
+        sync: false
+      - key: DOWNLOAD_DIR
+        value: /downloads
+      - key: MAX_CONCURRENT_DOWNLOADS
+        value: "1"
+      - key: MAX_CONCURRENT_UPLOADS
+        value: "1"
+      - key: MAX_QUEUE_PER_USER
+        value: "5"
+      - key: ARIA2_RPC_HOST
+        value: 127.0.0.1
+      - key: ARIA2_RPC_PORT
+        value: "6800"
+      - key: ARIA2_RPC_SECRET
+        sync: false
+      - key: SEED_TIME
+        value: "0"
+      - key: SEED_RATIO
+        value: "0"
+      - key: LOG_LEVEL
+        value: INFO
+      - key: PROGRESS_UPDATE_INTERVAL
+        value: "5"
